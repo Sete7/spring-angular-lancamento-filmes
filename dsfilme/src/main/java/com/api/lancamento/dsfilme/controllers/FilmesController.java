@@ -11,7 +11,7 @@ import com.api.lancamento.dsfilme.entities.Filmes;
 import com.api.lancamento.dsfilme.services.FilmesService;
 
 @RestController
-@RequestMapping(value = "filmes")
+@RequestMapping(value = "/filmes")
 public class FilmesController {
 	
 	@Autowired
