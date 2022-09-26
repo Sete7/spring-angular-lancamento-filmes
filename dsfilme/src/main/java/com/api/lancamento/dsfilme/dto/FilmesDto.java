@@ -1,20 +1,14 @@
-package com.api.lancamento.dsfilme.entities;
+package com.api.lancamento.dsfilme.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.api.lancamento.dsfilme.entities.Filmes;
 
-@Entity
-@Table(name = "tb_filmes")
-public class Filmes {
+public class FilmesDto implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private static final long serialVersionUID = 1L;
+
 	private String titulo;
 	private String urlFoto;
 	private LocalDate date;
@@ -24,12 +18,11 @@ public class Filmes {
 	private String urlImdb;
 	private String genero;
 
-	public Filmes() {
+	public FilmesDto() {
 	}
 
-	public Filmes(Long id, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento, String descricao,
+	public FilmesDto(String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento, String descricao,
 			Double nota, String urlImdb, String genero) {
-		this.id = id;
 		this.titulo = titulo;
 		this.urlFoto = urlFoto;
 		this.date = date;
@@ -40,18 +33,15 @@ public class Filmes {
 		this.genero = genero;
 	}
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
+	public FilmesDto(Filmes filmes) {
+		titulo = filmes.getTitulo();
+		urlFoto = filmes.getUrlFoto();
+		date = filmes.getDate();
+		dtLancamento = filmes.getDtLancamento();
+		descricao = filmes.getDescricao();
+		nota = filmes.getNota();
+		urlImdb = filmes.getUrlImdb();
+		genero = filmes.getGenero();
 	}
 
 	/**

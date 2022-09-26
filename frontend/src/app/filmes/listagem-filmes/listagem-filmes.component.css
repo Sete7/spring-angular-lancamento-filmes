@@ -15,6 +15,30 @@
     color: #FFF;
 }
 
+.button-prev,
+.button-next {
+    background-color: #fefefe2b;
+    padding: 1px;
+}
+
+.cl-icon {
+    color: #43a1bc;
+}
+
+.mat-toolbar-button__ {
+    background: transparent;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+.next__,
+.prev__ {
+    font-size: 6em;
+}
+
 .mat-toolbar__ {
     box-sizing: border-box;
     padding: 10px;
@@ -25,6 +49,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1%;
+}
+
+.full__ {
+    width: 100%;
 }
 
 .full-width__ {
@@ -74,6 +102,32 @@
 @media(min-width: 900px) {
     .mat-card__ {
         max-width: calc(33.33% - 46px);
+    }
+}
+
+@media(min-width: 1100px) {
+    .mat-toolbar-button__ {
+        padding: 0;
+        height: 0;
+        margin: 0;
+    }
+
+    .button-prev {
+        position: absolute;
+        bottom: 50%;
+        left: 10px;
+        z-index: 1;
+    }
+
+    .button-next {
+        position: absolute;
+        bottom: 50%;
+        right: 10px;
+        z-index: 1;
+    }
+
+    .cl-icon {
+        color: #FFF;
     }
 }
 

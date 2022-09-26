@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './../shared/material/material.module';
@@ -10,7 +11,9 @@ import { VisualizarFilmesComponent } from './visualizar-filmes/visualizar-filmes
   declarations: [CadastroFilmesComponent, ListagemFilmesComponent, VisualizarFilmesComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports: [
     CadastroFilmesComponent, ListagemFilmesComponent, VisualizarFilmesComponent
