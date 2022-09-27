@@ -4,13 +4,6 @@
             <mat-label class="cl-white">Pesquisar aqui</mat-label>
             <input matInput class="full-input__" formControlName="titulo">
         </mat-form-field>
-<!-- 
-        <mat-form-field class="full-width__" appearance="fill">
-            <mat-label class="cl-white">Genêro</mat-label>
-            <mat-select formControlName="genero">
-                <mat-option *ngFor="let opcao of generos" [value]="opcao">{{ opcao }}</mat-option>
-            </mat-select>
-        </mat-form-field>         -->
     </form>
 </mat-card>
 
@@ -24,7 +17,7 @@
             <i class="material-icons cl-icon next__">keyboard_arrow_right</i>
         </button>
     </mat-toolbar>
-    
+
     <mat-card class="mat-card__ bg-grafit" *ngFor="let filme of filmes">
         <mat-card-header class="mat-card-header__">
             <mat-card-title>{{ filme.titulo }}</mat-card-title>
@@ -41,4 +34,11 @@
             <button mat-button class="bg-orange cl-white btn-list-card">Entrar</button>
         </mat-card-actions>
     </mat-card>
+    <mat-toolbar class="mat-toolbar-vazio" *ngIf="filmes?.length === 0 && loading == false">
+        <i class="material-icons file-icon__">image</i>
+        <h1 class="msg__">Sua pesquisa não foi encontrada</h1>
+    </mat-toolbar>
+    <mat-toolbar class="loading__" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </mat-toolbar>
 </div>

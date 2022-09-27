@@ -109,6 +109,16 @@ h6 {
     color: #fff;
 }
 
+.msg-sucesso{
+    background-color: #28a745;
+    color: #FFF;
+}
+
+.msg-error{
+    background-color: #e35e6b;
+    color: #FFF;
+}
+
 footer {
     background: #43a1bc !important;
     color: #fff;

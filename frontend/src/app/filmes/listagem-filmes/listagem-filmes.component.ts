@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { FilmesService } from './../../core/filmes.service';
 import { FilmesDto } from 'src/app/shared/components/filmes/filmes';
 
+
 @Component({
   selector: 'app-listagem-filmes',
   templateUrl: './listagem-filmes.component.html',
@@ -14,19 +15,15 @@ export class ListagemFilmesComponent implements OnInit {
   filmes: FilmesDto[];
   filme: FilmesDto;
   titulo: string = '';
-  genero: string;
   page: number = 0;
   size: number = 4;
   numberElements!: number;
   totalElements!: number;
   totalPages!: number;
-
+  loading: boolean = false;
   btnNextDisabled!: boolean;
   btnPrevDisabled!: boolean;
-  generos: Array<string>;
-
   filtrosListagem: FormGroup;
-  content$: Observable<any>;
 
   constructor(
     private fb: FormBuilder,
@@ -35,50 +32,48 @@ export class ListagemFilmesComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario();
+    this.valueChangeTitulo();
+    this.list(this.titulo, this.page, this.size);
+  }
 
+  formulario(): void {
+    this.filtrosListagem = this.fb.group(
+      {
+        titulo: [null]
+      })
+  }
+
+  valueChangeTitulo(): void {
     this.filtrosListagem.get('titulo').valueChanges.subscribe(
-      (resp: string) => {
+      (resp: any) => {
+        this.loading = false
         this.titulo = resp;
         this.titulo = this.filtrosListagem.get('titulo')?.value
         this.resetarConsulta();
       }
     )
-
-    this.filtrosListagem.get('genero').valueChanges.subscribe(
-      (resp: string) => {
-        this.genero = resp;
-        console.log(this.genero)
-      }
-    )
-
-    this.generos = ['Ação', 'Romance', 'Aventura', 'Terror', 'Ficção cientifica', 'Comédia', 'Aventura', 'Drama'];
-    this.list(this.titulo, this.page, this.size);
-  }
-
-  formulario() {
-    this.filtrosListagem = this.fb.group(
-      {
-        titulo: [null],
-        genero: [null]
-      })
   }
 
   list(titulo: string, page: number, size: number): void {
     this.titulo != '';
     this.filmesService.listar(titulo, page, size).subscribe(
       filmes => {
-        console.log(filmes)
-        this.filmes = filmes['content'];
-        this.numberElements = filmes['numberOfElements'];
-        this.totalElements = filmes['totalElements'];
-        this.totalPages = filmes['totalPages'];
-        this.paginatorControl();
+        this.loading = true;
+        setTimeout(() => {
+          this.filmes = filmes['content']
+          this.numberElements = filmes['numberOfElements'];
+          this.totalElements = filmes['totalElements'];
+          this.totalPages = filmes['totalPages'];
+          this.paginatorControl();
+          this.loading = false;
+        }, 2500)
+        
       }
     )
   }
 
 
-  paginatorControl() {
+  paginatorControl(): void {
     if (this.page <= 0) {
       this.btnPrevDisabled = true;
     } else {
@@ -94,14 +89,14 @@ export class ListagemFilmesComponent implements OnInit {
     }
   }
 
-  prevPage() {
+  prevPage(): void {
     this.page--;
     this.filme = new FilmesDto();
     this.filme.titulo = this.filtrosListagem.get('titulo')?.value;
     this.list(this.titulo, this.page, this.size);
   }
 
-  nextPage() {
+  nextPage(): void {
     this.page++;
     this.filme = new FilmesDto();
     this.filme.titulo = this.filtrosListagem.get('titulo')?.value;
