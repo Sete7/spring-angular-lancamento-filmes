@@ -43,11 +43,18 @@ export class FilmesService {
   }
 
   editar(filme: Filmes): Observable<Filmes> {
-    return this.http.put<Filmes>(this.apiURL + filme.id, filme)
+    return this.http.put<Filmes>(`${this.apiURL}/` + filme.id, filme)
       .pipe(
         map((obj) => obj),
         catchError((e) => this.errorHandler(e))
       )
+  }
+
+  excluir(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiURL}/` + id)
+      .pipe(
+        map((obj) => obj),
+        catchError((e) => this.errorHandler(e)));
   }
 
   showMessage(msg: string, isError: boolean = false): void {
