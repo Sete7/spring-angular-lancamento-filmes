@@ -2,6 +2,7 @@ package com.api.lancamento.dsfilme.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import com.api.lancamento.dsfilme.entities.Filmes;
 
@@ -9,6 +10,8 @@ public class FilmesDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private Long id;
+	private UUID codigo;
 	private String titulo;
 	private String urlFoto;
 	private LocalDate date;
@@ -21,8 +24,9 @@ public class FilmesDto implements Serializable {
 	public FilmesDto() {
 	}
 
-	public FilmesDto(String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento, String descricao,
-			Double nota, String urlImdb, String genero) {
+	public FilmesDto(Long id, UUID codigo, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento,
+			String descricao, Double nota, String urlImdb, String genero) {
+		this.id = id;
 		this.titulo = titulo;
 		this.urlFoto = urlFoto;
 		this.date = date;
@@ -34,6 +38,8 @@ public class FilmesDto implements Serializable {
 	}
 
 	public FilmesDto(Filmes filmes) {
+		id = filmes.getId();
+		codigo = filmes.getCodigo();
 		titulo = filmes.getTitulo();
 		urlFoto = filmes.getUrlFoto();
 		date = filmes.getDate();
@@ -42,6 +48,34 @@ public class FilmesDto implements Serializable {
 		nota = filmes.getNota();
 		urlImdb = filmes.getUrlImdb();
 		genero = filmes.getGenero();
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param titulo the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the codigo
+	 */
+	public UUID getCodigo() {
+		return codigo;
+	}
+
+	/**
+	 * @param titulo the codigo to set
+	 */
+	public void setCodigo(UUID codigo) {
+		this.codigo = codigo;
 	}
 
 	/**

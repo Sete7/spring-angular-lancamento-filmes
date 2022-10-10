@@ -1,13 +1,13 @@
 package com.api.lancamento.dsfilme.repositories;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.api.lancamento.dsfilme.dto.FilmesFiltroDto;
 import com.api.lancamento.dsfilme.entities.Filmes;
 
 public interface FilmesRepository extends JpaRepository<Filmes, Long> {
@@ -17,6 +17,7 @@ public interface FilmesRepository extends JpaRepository<Filmes, Long> {
 	
 	@Query("SELECT f FROM Filmes f WHERE upper(trim(f.titulo)) like %?1% ORDER BY f.titulo DESC")
 	Page<Filmes> listarDtoTitulo(String titulo, Pageable pageable);
+
 
 
 }

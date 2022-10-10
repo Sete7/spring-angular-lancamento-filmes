@@ -1,0 +1,74 @@
+.bx-card__ {
+    width: 100%;
+}
+
+.app-content {
+    background-color: #303030;
+    margin-bottom: 20px;
+}
+
+.cl-white {
+    color: #FFF !important;
+}
+
+.mb-rem2-5 {
+    margin-bottom: 2.5rem;
+}
+
+.urlFoto {
+    width: 100%;
+}
+
+.mat-card-actions__ {
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    box-sizing: content-box;
+    margin-bottom: 35px;
+    box-shadow: 0 0 0 0 transparent !important;
+}
+
+.mat-card-buttons__ {
+    display: flex;
+    justify-content: center;
+    gap: 12.5%;
+    width: 100%;
+    border-left: thin;
+    direction: ltr;
+    -webkit-text-stroke-width: medium;
+    box-shadow: transparent;
+}
+
+.main-div {
+    margin: 15% auto;
+    color: #FFF;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+@media(min-width: 300px) {
+    .urlFoto {
+        max-width: 250px;
+        display: flex;
+        margin: auto;
+    }
+}
+
+@media(min-width: 850px) {
+    .bx-card__ {        
+        max-width: 850px;
+        margin: 7% auto;
+    }
+
+    .urlFoto {        
+        display: unset;
+        margin: unset;
+        padding: 0 16px;
+    }
+
+    .mat-card-buttons__ {
+        justify-content: initial;
+        gap: 91px;
+        padding: 0 16px;
+    }
+}

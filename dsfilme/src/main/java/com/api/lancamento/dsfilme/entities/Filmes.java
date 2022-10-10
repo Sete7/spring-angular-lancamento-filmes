@@ -1,12 +1,16 @@
 package com.api.lancamento.dsfilme.entities;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+
+import com.api.lancamento.dsfilme.dto.FilmesDto;
 
 @Entity
 @Table(name = "tb_filmes")
@@ -15,6 +19,9 @@ public class Filmes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+//	@Id	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private UUID codigo;
 	private String titulo;
 	private String urlFoto;
 	private LocalDate date;
@@ -27,9 +34,10 @@ public class Filmes {
 	public Filmes() {
 	}
 
-	public Filmes(Long id, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento, String descricao,
-			Double nota, String urlImdb, String genero) {
+	public Filmes(Long id, UUID codigo, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento,
+			String descricao, Double nota, String urlImdb, String genero) {
 		this.id = id;
+		this.codigo = codigo;
 		this.titulo = titulo;
 		this.urlFoto = urlFoto;
 		this.date = date;
@@ -52,6 +60,20 @@ public class Filmes {
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the codigo
+	 */
+	public UUID getCodigo() {
+		return codigo;
+	}
+
+	/**
+	 * @param id the codigo to set
+	 */
+	public void setCodigo(UUID codigo) {
+		this.codigo = codigo;
 	}
 
 	/**
@@ -165,5 +187,16 @@ public class Filmes {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
+	public FilmesDto map(Filmes object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@PrePersist
+	public void beforeSave() {
+		setCodigo(getCodigo());
+		setDate(LocalDate.now());
+	}	
 
 }

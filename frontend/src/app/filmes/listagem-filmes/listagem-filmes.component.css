@@ -83,7 +83,10 @@
 
 .mat-card__ {
     max-width: 100%;
+    width: 100%;
     color: #FFF;
+    display: grid;
+    box-sizing: initial;
 }
 
 .mat-card__ img {
@@ -110,12 +113,12 @@
     background: transparent;
 }
 
-.file-icon__{
+.file-icon__ {
     font-size: 3em;
     margin-bottom: 20px;
 }
 
-.msg__{
+.msg__ {
     font-size: 2em;
 }
 

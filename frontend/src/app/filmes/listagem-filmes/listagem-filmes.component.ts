@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FilmesService } from './../../core/filmes.service';
-import { FilmesDto } from 'src/app/shared/components/filmes/filmes';
+import { FilmesDto } from 'src/app/shared/components/filmes/filmesDto';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { FilmesDto } from 'src/app/shared/components/filmes/filmes';
 })
 export class ListagemFilmesComponent implements OnInit {
 
+  readonly semFoto = 'https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg';
   filmes: FilmesDto[];
   filme: FilmesDto;
   titulo: string = '';
@@ -27,7 +29,8 @@ export class ListagemFilmesComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private filmesService: FilmesService
+    private filmesService: FilmesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -107,6 +110,10 @@ export class ListagemFilmesComponent implements OnInit {
     this.page = 0;
     this.filmes = [];
     this.list(this.titulo, this.page, this.size);
+  }
+
+  abrir(id: number):void{
+    this.router.navigateByUrl("/filmes/" + id)
   }
 
 }

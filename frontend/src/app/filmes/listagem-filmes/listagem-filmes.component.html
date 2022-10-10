@@ -24,14 +24,14 @@
             <mat-card-subtitle class="cl-white">Genero: {{ filme.genero }}</mat-card-subtitle>
             <mat-card-subtitle class="cl-white">Publicação: {{ filme.date | date:'dd/MM/yyyy' }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="filme.urlFoto" [alt]="filme.titulo">
+        <img mat-card-image [src]="filme.urlFoto || semFotos" [alt]="filme.titulo">
         <mat-card-content>
             <p>
                 {{ filme.descricao }}
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button class="bg-orange cl-white btn-list-card">Entrar</button>
+            <button mat-button class="bg-orange cl-white btn-list-card" (click)="abrir(filme.id)">Abrir</button>
         </mat-card-actions>
     </mat-card>
     <mat-toolbar class="mat-toolbar-vazio" *ngIf="filmes?.length === 0 && loading == false">

@@ -96,11 +96,17 @@ h6 {
     margin: 0;
 }
 
-.app-content{
+.app-content__ {
+    background: #424242;
+    max-width: 600px;
+    margin: 5% auto;
+}
+
+.app-content {
     background-color: #303030;
 }
 
-.mat-toolbar__ form .mat-form-field-flex{
+.mat-toolbar__ form .mat-form-field-flex {
     border-bottom: 1px solid #FFF;
 }
 
@@ -109,13 +115,50 @@ h6 {
     color: #fff;
 }
 
-.msg-sucesso{
+.msg-sucesso {
     background-color: #28a745;
     color: #FFF;
 }
 
-.msg-error{
+.msg-error {
     background-color: #e35e6b;
+    color: #FFF;
+}
+
+.bx-card__ .mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+    height: auto;
+}
+
+.bx-card__ .mat-card-image {
+    margin: auto;
+}
+
+.app-content__ .app-title,
+.mat-card {
+    background: #424242 !important;
+    color: #FFF !important;
+}
+
+.app-content__ .mat-form-field {
+    width: 100%;
+}
+
+.app-content__ .mat-form-field-label,
+.app-content__ .mat-select-value {
+    color: #FFF;
+}
+
+.app-content__ .mat-form-field-underline {
+    background-color: #FFF;
+}
+
+.app-content__ .mat-icon-button {
+    background: transparent;
+    color: #FFF;
+}
+
+.app-content__ .mat-select-arrow {
     color: #FFF;
 }
 
