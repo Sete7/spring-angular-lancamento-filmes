@@ -12,21 +12,21 @@ export class TopoComponent implements OnInit {
 
   reason = '';
 
-  close(reason: string) {
+  close(reason: string): void {
     this.reason = reason;
     this.sidenav.close();
   }
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  closeSideNav(){
+  closeSideNav(): void {
     this.sidenav.close();
   }
 
-  openSideNav(){
+  openSideNav(): void {
     this.sidenav.open();
   }
 

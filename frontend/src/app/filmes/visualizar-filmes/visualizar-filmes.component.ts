@@ -19,24 +19,25 @@ export class VisualizarFilmesComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private filmesService: FilmesService
+    private filmesService: FilmesService,
+    private router: Router
   ) { }
 
-  ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params['id'];
+  ngOnInit(): void{
+    const id = 'id';
+    this.id = this.activatedRoute.snapshot.params[id];
     this.filmesService.buscaPorId(this.id).subscribe(
       (filme: Filmes) => {
         this.filme = filme;
       }
-    )
+    );
   }
 
-  editar(): void {
+  editar(): void{
     this.router.navigateByUrl('/filmes/cadastro/' + this.id);
   }
 
-  excluir(): void {
+  excluir(): void{
     const config = {
       data: {
         titulo: 'Você tem certeza que deseja excluir?',
@@ -56,3 +57,7 @@ export class VisualizarFilmesComponent implements OnInit {
   }
 
 }
+
+
+
+

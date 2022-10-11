@@ -11,7 +11,7 @@ import { FilmesDto } from './../shared/components/filmes/filmesDto';
 })
 export class FilmesService {
 
-  readonly apiURL: string = "http://localhost:8080/filmes";
+  readonly apiURL: string = 'http://localhost:8080/filmes';
 
   constructor(
     private snackBar: MatSnackBar,
@@ -23,7 +23,7 @@ export class FilmesService {
       .pipe(
         map((obj) => obj),
         catchError((e) => this.errorHandler(e))
-      )
+      );
   }
 
   listar(titulo: string, page: number, size: number): Observable<FilmesDto[]> {
@@ -31,7 +31,7 @@ export class FilmesService {
       .pipe(
         map((obj) => obj),
         catchError((e) => this.errorHandler(e))
-      )
+      );
   }
 
   buscaPorId(id: number): Observable<Filmes> {
@@ -39,7 +39,7 @@ export class FilmesService {
       .pipe(
         map((obj) => obj),
         catchError((e) => this.errorHandler(e))
-      )
+      );
   }
 
   editar(filme: Filmes): Observable<Filmes> {
@@ -47,28 +47,29 @@ export class FilmesService {
       .pipe(
         map((obj) => obj),
         catchError((e) => this.errorHandler(e))
-      )
+      );
   }
 
   excluir(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiURL}/` + id)
       .pipe(
         map((obj) => obj),
-        catchError((e) => this.errorHandler(e)));
+        catchError((e) => this.errorHandler(e))
+      );
   }
 
   showMessage(msg: string, isError: boolean = false): void {
-    this.snackBar.open(msg, "X", {
+    this.snackBar.open(msg, 'X', {
       duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
       panelClass: isError ? ['msg-error'] : ['msg-sucesso']
     }
-    )
+    );
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage("Ocorreu algum error! ", true);
+    this.showMessage('Ocorreu algum error! ', true);
     return EMPTY;
   }
 }

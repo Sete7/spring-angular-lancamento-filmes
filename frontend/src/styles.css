@@ -162,6 +162,17 @@ h6 {
     color: #FFF;
 }
 
+.bx-card__ .app-content .mat-list-item-content {
+    display: unset !important;
+    flex-direction: unset !important;
+    align-items: unset !important; 
+    box-sizing: unset !important;
+    padding: unset !important; 
+    position: unset !important;
+    height: unset !important;
+}
+
+
 footer {
     background: #43a1bc !important;
     color: #fff;

@@ -15,23 +15,25 @@
     margin-bottom: 2.5rem;
 }
 
+.ft-light{
+    font-weight: lighter;
+}
+
 .urlFoto {
     width: 100%;
 }
 
 .mat-card-actions__ {
     width: 100%;
-    background-color: transparent;
+    background-color: transparent !important;
     display: block;
     box-sizing: content-box;
     margin-bottom: 35px;
     box-shadow: 0 0 0 0 transparent !important;
+    text-align: center;
 }
 
-.mat-card-buttons__ {
-    display: flex;
-    justify-content: center;
-    gap: 12.5%;
+.mat-card-buttons__ {    
     width: 100%;
     border-left: thin;
     direction: ltr;
@@ -56,19 +58,12 @@
 
 @media(min-width: 850px) {
     .bx-card__ {        
-        max-width: 850px;
-        margin: 7% auto;
+        max-width: 400px;
+        margin: 3% auto;
     }
 
-    .urlFoto {        
-        display: unset;
-        margin: unset;
+    .mat-card-buttons__ {     
         padding: 0 16px;
-    }
-
-    .mat-card-buttons__ {
-        justify-content: initial;
-        gap: 91px;
-        padding: 0 16px;
+        text-align: center;
     }
 }

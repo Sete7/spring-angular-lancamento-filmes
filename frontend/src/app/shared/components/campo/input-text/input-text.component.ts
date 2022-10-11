@@ -8,12 +8,14 @@ import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./input-text.component.css']
 })
 export class InputTextComponent {
- 
+
   @Input() titulo: string;
   @Input() formGroup: FormGroup;
-  @Input() controlName: string;  
+  @Input() controlName: string;
 
-  constructor(public validacao: ValidarCamposService) { }
+  constructor(
+    public validacao: ValidarCamposService
+  ) { }
 
   get formControl(): AbstractControl {
     return this.formGroup.controls[this.controlName];

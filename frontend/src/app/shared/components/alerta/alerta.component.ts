@@ -19,10 +19,12 @@ export class AlertaComponent implements OnInit {
         possuirBtnFechar: false
     } as Alerta;
 
-    constructor(public dialogRef: MatDialogRef<AlertaComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: Alerta) { }
+    constructor(
+        public dialogRef: MatDialogRef<AlertaComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: Alerta
+    ) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
         if (this.data) {
             this.alerta.titulo = this.data.titulo || this.alerta.titulo;
             this.alerta.descricao = this.data.descricao || this.alerta.descricao;
@@ -35,3 +37,7 @@ export class AlertaComponent implements OnInit {
     }
 
 }
+
+
+
+

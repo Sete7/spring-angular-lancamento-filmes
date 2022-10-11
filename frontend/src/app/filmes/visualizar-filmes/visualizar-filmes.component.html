@@ -1,16 +1,15 @@
 <div class="bx-card__">
-
-
-
-
-
     <mat-list class="app-content" *ngIf="filme; else semRegistro">
-        <mat-list-item class="cl-white"> Título: {{filme.titulo}} </mat-list-item>
-        <mat-list-item class="cl-white"> Data de lançamento: {{filme.dtLancamento | date: 'dd/MM/yyyy' }}
+        <mat-list-item class="cl-white ft-light"> <strong>Título:</strong> {{filme.titulo}} </mat-list-item>
+        <hr>
+        <mat-list-item class="cl-white ft-light"> <strong>Data de lançamento:</strong> {{filme.dtLancamento | date: 'dd/MM/yyyy' }}
         </mat-list-item>
-        <mat-list-item class="cl-white"> Gênero: {{filme.genero}} </mat-list-item>
-        <mat-list-item class="quebrar-linha cl-white"> Descrição: {{filme.descricao}} </mat-list-item>
-        <mat-list-item class="cl-white mb-rem2-5">Nota: <a [href]="filme.urlIMDb" class="cl-white" target="_blank"> {{ filme.nota
+        <hr>
+        <mat-list-item class="cl-white ft-light"> <strong>Gênero:</strong> {{filme.genero}} </mat-list-item>
+        <hr>
+        <mat-list-item class="quebrar-linha cl-white ft-light"> <strong>Descrição:</strong> {{ filme.descricao }} </mat-list-item>
+        <hr>
+        <mat-list-item class="cl-white mb-rem2-5 ft-light"><strong>Nota:</strong> <a [href]="filme.urlIMDb" class="cl-white" target="_blank"> {{ filme.nota
                 }}</a> </mat-list-item>
         <img class="urlFoto" mat-card-image [src]="filme.urlFoto || semFoto">        
         <mat-card class="mat-card-actions__">

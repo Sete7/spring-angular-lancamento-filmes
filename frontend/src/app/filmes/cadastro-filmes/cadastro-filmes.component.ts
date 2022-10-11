@@ -20,19 +20,19 @@ export class CadastroFilmesComponent implements OnInit {
   cadastro: FormGroup;
   generos: Array<string>;
 
-  constructor(public validacao: ValidarCamposService,
+  constructor(
+    public validacao: ValidarCamposService,
     public dialog: MatDialog,
     private fb: FormBuilder,
     private filmeService: FilmesService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute
+  ) { }
 
-  get f() {
-    return this.cadastro.controls;
-  }
+  ngOnInit(): void{
+    const id = 'id';
+    this.id = this.activatedRoute.snapshot.params[id];
 
-  ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
       this.filmeService.buscaPorId(this.id)
         .subscribe((filme: Filmes) => this.criarFormulario(filme));

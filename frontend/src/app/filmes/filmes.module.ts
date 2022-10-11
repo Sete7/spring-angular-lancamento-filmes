@@ -13,7 +13,7 @@ import { CampoModule } from './../shared/components/campo/campo.module';
   imports: [
     CommonModule,
     MaterialModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     CampoModule
   ],
