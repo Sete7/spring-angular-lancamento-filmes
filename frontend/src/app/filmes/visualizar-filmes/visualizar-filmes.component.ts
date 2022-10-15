@@ -16,7 +16,7 @@ export class VisualizarFilmesComponent implements OnInit {
   filme: Filmes;
   id: number;
   readonly semFoto = 'assets/img/sem-foto.png';
-  
+
   constructor(
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,

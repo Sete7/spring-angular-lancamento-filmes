@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ListagemFilmesComponent implements OnInit {
 
-  readonly semFoto = 'assets/img/sem-foto.png';  
+  readonly semFoto = 'assets/img/sem-foto.png';
   filmes: FilmesDto[];
   filme: FilmesDto;
   titulo = '';
