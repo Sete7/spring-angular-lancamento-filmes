@@ -1,6 +1,5 @@
-export class FilmesDto{
+export class FilmesDto {
     public id?: number;
-    public codigo?: string;
     public titulo?: string;
     public urlFoto?: string;
     public date?: Date;

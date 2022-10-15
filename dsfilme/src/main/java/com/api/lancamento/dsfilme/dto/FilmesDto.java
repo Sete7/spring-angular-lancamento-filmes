@@ -11,7 +11,6 @@ public class FilmesDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private UUID codigo;
 	private String titulo;
 	private String urlFoto;
 	private LocalDate date;
@@ -24,8 +23,8 @@ public class FilmesDto implements Serializable {
 	public FilmesDto() {
 	}
 
-	public FilmesDto(Long id, UUID codigo, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento,
-			String descricao, Double nota, String urlImdb, String genero) {
+	public FilmesDto(Long id, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento, String descricao,
+			Double nota, String urlImdb, String genero) {
 		this.id = id;
 		this.titulo = titulo;
 		this.urlFoto = urlFoto;
@@ -39,7 +38,6 @@ public class FilmesDto implements Serializable {
 
 	public FilmesDto(Filmes filmes) {
 		id = filmes.getId();
-		codigo = filmes.getCodigo();
 		titulo = filmes.getTitulo();
 		urlFoto = filmes.getUrlFoto();
 		date = filmes.getDate();
@@ -62,20 +60,6 @@ public class FilmesDto implements Serializable {
 	 */
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	/**
-	 * @return the codigo
-	 */
-	public UUID getCodigo() {
-		return codigo;
-	}
-
-	/**
-	 * @param titulo the codigo to set
-	 */
-	public void setCodigo(UUID codigo) {
-		this.codigo = codigo;
 	}
 
 	/**

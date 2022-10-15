@@ -24,10 +24,10 @@
             <mat-card-subtitle class="cl-white">Genero: {{ filme.genero }}</mat-card-subtitle>
             <mat-card-subtitle class="cl-white">Publicação: {{ filme.date | date:'dd/MM/yyyy' }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="filme.urlFoto || semFotos" [alt]="filme.titulo">
+        <img mat-card-image [src]="filme.urlFoto || semFoto" [alt]="filme.titulo">
         <mat-card-content>
             <p>
-                {{ filme.descricao }}
+                {{ filme.descricao || "Nenhuma descrição informada." }}
             </p>
         </mat-card-content>
         <mat-card-actions>

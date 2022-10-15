@@ -70,7 +70,7 @@ export class CadastroFilmesComponent implements OnInit {
       dtLancamento: [filme.dtLancamento, [Validators.required]],
       descricao: [filme.descricao],
       nota: [filme.nota, [Validators.required, Validators.min(0), Validators.max(10)]],
-      urlImdb: [filme.urlImdb, [Validators.required, Validators.minLength(10)]],
+      urlImdb: [filme.urlImdb, [Validators.minLength(10)]],
       genero: [filme.genero, [Validators.required]]
     });
   }

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ListagemFilmesComponent implements OnInit {
 
-  readonly semFoto = 'https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg';
+  readonly semFoto = 'assets/img/sem-foto.png';  
   filmes: FilmesDto[];
   filme: FilmesDto;
   titulo = '';

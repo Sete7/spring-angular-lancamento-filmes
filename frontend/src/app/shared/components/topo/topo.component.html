@@ -13,22 +13,17 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="openSideNav()">
                 <mat-icon aria-label="Side nav toggle icon"> menu</mat-icon>
             </button>
-            <span>filmes.com</span>
+            <a routerLink="/" class="link__">filmes.com</a>
             <button mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>
             </button>
         </mat-toolbar>
-
         <div class="app-content">
             <router-outlet></router-outlet>
         </div>
         <app-rodape></app-rodape>
-
     </mat-sidenav-content>
-
 </mat-sidenav-container>
-
-
 <mat-menu #menu="matMenu">
     <button mat-menu-item>
         <mat-icon>account_circle</mat-icon>

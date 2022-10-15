@@ -21,7 +21,6 @@ public class Filmes {
 	private Long id;
 //	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private UUID codigo;
 	private String titulo;
 	private String urlFoto;
 	private LocalDate date;
@@ -34,10 +33,9 @@ public class Filmes {
 	public Filmes() {
 	}
 
-	public Filmes(Long id, UUID codigo, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento,
+	public Filmes(Long id, String titulo, String urlFoto, LocalDate date, LocalDate dtLancamento,
 			String descricao, Double nota, String urlImdb, String genero) {
 		this.id = id;
-		this.codigo = codigo;
 		this.titulo = titulo;
 		this.urlFoto = urlFoto;
 		this.date = date;
@@ -60,20 +58,6 @@ public class Filmes {
 	 */
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	/**
-	 * @return the codigo
-	 */
-	public UUID getCodigo() {
-		return codigo;
-	}
-
-	/**
-	 * @param id the codigo to set
-	 */
-	public void setCodigo(UUID codigo) {
-		this.codigo = codigo;
 	}
 
 	/**
@@ -195,7 +179,6 @@ public class Filmes {
 	
 	@PrePersist
 	public void beforeSave() {
-		setCodigo(getCodigo());
 		setDate(LocalDate.now());
 	}	
 
